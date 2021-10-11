@@ -7,19 +7,19 @@
   
   <!-- Differential Drive controller from Gazebo -->
   <gazebo>
-    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+   <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <legacyMode>false</legacyMode>
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>${L_wheel*2}</wheelSeparation>
-      <wheelDiameter>${r_wheel*2}</wheelDiameter>
-      <torque>${torque_wheel}</torque>
-      <commandTopic>gazebo_cmd_vel</commandTopic>
+      <wheelSeparation>0.8</wheelSeparation>
+      <wheelDiameter>0.215</wheelDiameter>
+      <torque>10</torque>
+      <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>gazebo_odom</odometryTopic>
       <odometryFrame>odom_link</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
-      <legacyMode>false</legacyMode>
     </plugin>
   </gazebo>
   <!--Laser Plugin-->
@@ -70,6 +70,12 @@
   <!-- Chassis color -->
   <gazebo reference="chassis">
       <material>Gazebo/Green</material>
+  </gazebo>
+   <gazebo reference="left_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Black</material>
   </gazebo>
 
 
